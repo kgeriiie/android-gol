@@ -121,6 +121,7 @@ public class MainActivity extends MvpActivity<IMainView, MainPresenter> implemen
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.settings:
+                settingsDialog = new SettingsDialog(this);
                 settingsDialog.show();
 
                 break;
