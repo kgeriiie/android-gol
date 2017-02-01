@@ -10,10 +10,22 @@ import com.ottone.gameoflife.utils.BoardUtils;
 
 public class Board {
 
+    private int mNumColumns, mNumRows;
     private int[][] mHabitatBoard;
 
-    public Board(int sizeX, int sizeY) {
-        mHabitatBoard = new int[sizeY][sizeX];
+    public Board(int pNumColumns, int pNumRows) {
+        mNumColumns = pNumColumns;
+        mNumRows = pNumRows;
+
+        mHabitatBoard = new int[mNumRows][mNumColumns];
+    }
+
+    public int getColumnsCount() {
+        return mNumColumns;
+    }
+
+    public int getRowsCount() {
+        return mNumRows;
     }
 
     public int getCellStateOfBoard(int x, int y) {
