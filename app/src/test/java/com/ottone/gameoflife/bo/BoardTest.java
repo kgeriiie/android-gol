@@ -1,5 +1,7 @@
 package com.ottone.gameoflife.bo;
 
+import com.ottone.gameoflife.bl.Board;
+
 import junit.framework.Assert;
 
 import org.junit.Before;

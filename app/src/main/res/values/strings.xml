@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">GameOfLife</string>
+
+    <string name="automatic_simulation_on_text">Automata szimuláció elindítva</string>
+    <string name="automatic_simulation_off_text">Automata szimuláció leállítva</string>
+    
+    <string name="menu_settings_tilte">Beállítások</string>
+
+    <string name="settings_title_text">Beállítások</string>
+    <string name="settings_column_text">Szélesség</string>
+    <string name="settings_rows_text">Magasság</string>
+    <string name="settings_editable_enabled_text">A tábla szerkeszthető</string>
+    <string name="settings_save_text">Beállítások mentése</string>
+    <string name="settings_width_size_warning_text">A szélesség értéke nem lehet kisebb mint 1</string>
+    <string name="settings_height_size_warning_text">A magasság értéke nem lehet kisebb mint 1</string>
+
 </resources>

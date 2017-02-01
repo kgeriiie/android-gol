@@ -4,37 +4,56 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_gray_FCFCFC"
     tools:context="com.ottone.gameoflife.ui.main.MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
         android:orientation="vertical">
 
-        <FrameLayout
+        <com.ottone.gameoflife.ui.custom.BoardView
             android:id="@+id/main_content_board"
-            android:layout_width="500dp"
-            android:layout_height="500dp"/>
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/item_top_shadow"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_below="@+id/main_content_board"
+            android:background="@drawable/item_top_shadow"
+            android:layout_marginTop="-5dp"/>
 
         <LinearLayout
-            android:layout_width="300dp"
-            android:layout_height="45dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:layout_below="@+id/main_content_board">
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"/>
+            <ImageView
+                android:id="@+id/main_auto_play_pause"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:padding="10dp"
+                android:src="@drawable/ic_play_arrow_white_24dp"
+                android:background="@drawable/shape_round"/>
 
-            <Button
+            <ImageView
                 android:id="@+id/main_next_stepBt"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="NEXT"/>
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="10dp"
+                android:padding="15dp"
+                android:src="@drawable/ic_skip_next_white_24dp"
+                android:background="@drawable/shape_round"/>
 
         </LinearLayout>
-
-    </LinearLayout>
-
+    </RelativeLayout>
 </RelativeLayout>

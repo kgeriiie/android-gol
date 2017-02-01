@@ -1,7 +1,5 @@
-package com.ottone.gameoflife.bo;
-
-import android.util.Log;
-
+package com.ottone.gameoflife.bl;
+import com.ottone.gameoflife.bo.CellState;
 import com.ottone.gameoflife.utils.BoardUtils;
 
 /**
@@ -91,15 +89,4 @@ public class Board {
     public int[][] getBoard() {
         return mHabitatBoard;
     }
-
-    public void show() {
-        for (int i = 0; i < mHabitatBoard.length; i++) {
-            StringBuilder sb = new StringBuilder();
-            for (int j = 0; j < mHabitatBoard[i].length; j++) {
-                sb.append(String.format("%d,",mHabitatBoard[i][j]));
-            }
-            Log.d("test--",sb.toString().substring(0,sb.toString().length() -1));
-        }
-    }
-
 }

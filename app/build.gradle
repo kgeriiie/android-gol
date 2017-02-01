@@ -33,4 +33,6 @@ dependencies {
 
     compile 'com.hannesdorfmann.mosby:mvp:2.0.1'
     compile 'com.hannesdorfmann.mosby:viewstate:2.0.1'
+
+    compile 'org.greenrobot:eventbus:3.0.0'
 }

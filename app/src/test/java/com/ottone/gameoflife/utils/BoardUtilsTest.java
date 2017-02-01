@@ -1,6 +1,6 @@
 package com.ottone.gameoflife.utils;
 
-import com.ottone.gameoflife.bo.Board;
+import com.ottone.gameoflife.bl.Board;
 
 import org.junit.Test;
 

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="300dp"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="@android:color/white"
+        android:text="@string/settings_title_text"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:background="@color/color_blue_45AFFD" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:gravity="center"
+        android:background="@color/color_gray_FCFCFC"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:text="@string/settings_column_text"
+                android:textColor="@color/color_blue_45AFFD"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:textSize="10sp"
+                android:text="@string/settings_rows_text"
+                android:textColor="@color/color_blue_45AFFD"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/settings_columns_countEt"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:inputType="number"
+                android:gravity="center"
+                android:background="@drawable/shape_edit_text"/>
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="x"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/settings_rows_countEt"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:inputType="number"
+                android:gravity="center"
+                android:background="@drawable/shape_edit_text"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@drawable/cover_bottom_shadow"/>
+
+    <CheckBox
+        android:id="@+id/settings_is_editable_enabledCb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/color_gray_1b1b1b"
+        android:textSize="12sp"
+        android:text="@string/settings_editable_enabled_text"/>
+    
+    <Button
+        android:id="@+id/settings_saveBt"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="10dp"
+        android:textSize="12sp"
+        android:textColor="@android:color/white"
+        android:text="@string/settings_save_text"
+        android:background="@drawable/shape_button"/>
+
+</LinearLayout>

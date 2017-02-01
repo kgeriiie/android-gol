@@ -4,11 +4,14 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.ottone.gameoflife.bo.Board;
+import com.ottone.gameoflife.R;
+import com.ottone.gameoflife.bl.Board;
+import com.ottone.gameoflife.bl.PrefManager;
 import com.ottone.gameoflife.bo.CellState;
 
 /**
@@ -16,9 +19,10 @@ import com.ottone.gameoflife.bo.CellState;
  */
 
 public class BoardView extends View {
+
+    private boolean isEditableEnabled = false;
     private int cellWidth, cellHeight;
     private Paint blackPaint = new Paint();
-
     private Board mBoard;
 
     public BoardView(Context context) {
@@ -28,16 +32,25 @@ public class BoardView extends View {
     public BoardView(Context context, AttributeSet attrs) {
         super(context, attrs);
         blackPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+        blackPaint.setColor(ContextCompat.getColor(getContext(), R.color.color_gray_BABABA));
     }
 
     public void setBoard(Board pBoard) {
         mBoard = pBoard;
+
+        isEditableEnabled = PrefManager.getInstance().isEditable();
 
         calculateDimensions();
     }
 
     public void doEvolution() {
         mBoard.applyRules();
+
+        invalidate();
+    }
+
+    public void isEditableEnabled(boolean isEnabled) {
+        isEditableEnabled = isEnabled;
 
         invalidate();
     }
@@ -49,7 +62,7 @@ public class BoardView extends View {
     }
 
     private void calculateDimensions() {
-        if (mBoard.getColumnsCount() < 1 || mBoard.getRowsCount() < 1) {
+        if (mBoard == null || mBoard.getColumnsCount() < 1 || mBoard.getRowsCount() < 1) {
             return;
         }
 
@@ -63,7 +76,7 @@ public class BoardView extends View {
     protected void onDraw(Canvas canvas) {
         canvas.drawColor(Color.WHITE);
 
-        if (mBoard.getColumnsCount() == 0 || mBoard.getRowsCount() == 0) {
+        if (mBoard == null || mBoard.getColumnsCount() == 0 || mBoard.getRowsCount() == 0) {
             return;
         }
 
@@ -90,11 +103,11 @@ public class BoardView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+        if (isEditableEnabled && event.getAction() == MotionEvent.ACTION_DOWN) {
             int column = (int)(event.getX() / cellWidth);
             int row = (int)(event.getY() / cellHeight);
 
-            if (column <= mBoard.getColumnsCount() && row <= mBoard.getRowsCount()) {
+            if (column < mBoard.getColumnsCount() && row < mBoard.getRowsCount()) {
                 mBoard.setCellStateOfBoard(column, row, mBoard.getCellStateOfBoard(column, row) == CellState.LIVE ? CellState.EMPTY : CellState.LIVE);
                 invalidate();
             }
